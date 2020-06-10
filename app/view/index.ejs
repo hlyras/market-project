@@ -1,0 +1,41 @@
+<html>
+	<head>
+        <% include ./partials/head %>
+	</head>
+	<body>
+		<header class="header-background-image fill">
+			<div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/favicon/favicon-white.png"></div>
+			<!-- <div onclick="window.location.href='/'" href="#default" class="favicon"><img class="favicon-image" src="/images/jaicon2.png"></div> -->
+			<div class="right">
+				<a href="/login">Entrar</a>
+			</div>
+		</header>
+		<% include ./partials/nav %>
+		<section>
+			<div id="container" class="container">
+				<form id="product-filter-form" class="box-1">
+					<input type="hidden" name="location" value="productCatalog">
+					<input type="text" name="name" class="input-search" placeholder="Produto" autocomplete="off">
+					<input type="hidden" name="code" class="btn-generic-small" placeholder="Cód" autocomplete="off">
+					<select name="color" id="product-catalog-color" class="select-search-color" autocomplete="off">
+						<option value="">Cor</option>
+						<% for(i in productColors){ %>
+							<option value="<%= productColors[i].shortcut %>"><%= productColors[i].name %></option>
+						<% } %>
+					</select>
+					<input type="submit" class="btn-search-submit" value="Filtrar">
+				</form>
+			</div>
+			<div id="product-catalog" class="container">
+				
+			</div>
+		</section>
+		<div id="ajax-loader" class="ajax-loader">
+			<div class="loader"></div>
+		</div>
+	</body>
+	<footer>
+        <% include ./partials/footer %>
+        <% include ./product/partial %>
+	</footer>
+</html>
